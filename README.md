@@ -73,7 +73,7 @@ This repository currently serves as a placeholder for the Cryptosafe Token proje
 
 ## **Contact**
 For inquiries or more information:
-- **Email**: [info@cryptosafe.com](mailto:admin@cryptosafe.ch)
+- **Email**: [admin@cryptosafe.ch](mailto:admin@cryptosafe.ch)
 - **Website**: [Cryptosafe Official Website](https://cryptosafe.ch)
 
 ---
