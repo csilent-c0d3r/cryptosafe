@@ -1,37 +1,85 @@
 # **Cryptosafe Token (CST) Project**
 
 ## **Overview**
-The Cryptosafe Token (CST) is a Binance Smart Chain (BSC)-based cryptocurrency, designed to power the SafeCrypto ecosystem. The project focuses on decentralized wallet integration, presale management, and bridging the gap between blockchain and traditional financial systems with the use of a physical bank card.
+The **Cryptosafe Token (CST)** is a Binance Smart Chain (BSC)-based cryptocurrency designed to empower the SafeCrypto ecosystem. SafeCrypto aims to bridge the gap between decentralized finance (DeFi) and traditional banking through innovative features such as a decentralized wallet, staking, and bank card integration.
 
 ---
 
-## **Table of Contents**
-- [Features](#features)
-- [Project Structure](#project-structure)
-- [Getting Started](#getting-started)
-- [Technologies](#technologies)
-- [Contributing](#contributing)
-- [License](#license)
+## **Key Features**
+- **Presale Mechanism**: Users can buy CST tokens during the presale phase with funds locked until the token is officially listed.
+- **Wallet Integration**: Supports leading wallets such as MetaMask and Trust Wallet for seamless transactions.
+- **Bank Card Support**: Convert CST tokens to fiat and use them for real-world transactions via an integrated bank card.
+- **Governance**: CST holders can vote on key decisions, such as platform upgrades and new feature development.
+- **Staking Incentives**: Stake CST tokens to enjoy reduced fees and earn rewards.
 
 ---
 
-## **Features**
-- **Decentralized Wallet Integration**: Manage CST tokens in a secure, non-custodial environment.
-- **Presale Mechanism**: Participate in the token presale with funds locked until marketplace listing.
-- **Bank Card Support**: Use CST tokens for real-world transactions with crypto-to-fiat conversions.
-- **Governance**: CST token holders participate in platform governance decisions.
-- **Staking Rewards**: Reduced fees and staking incentives.
+## **Token Details**
+- **Blockchain**: Binance Smart Chain (BSC)
+- **Token Name**: Cryptosafe Token (CST)
+- **Total Supply**: 10 billion CST
+- **Token Distribution**:
+  - 60%: Public (Presale and Marketplace)
+  - 40%: Reserved (Development, marketing, partnerships)
 
 ---
 
-## **Project Structure**
-```plaintext
-Cryptosafe-Token/
-├── frontend/          # Frontend code for the website
-├── backend/           # Backend API and server code
-├── docs/              # Documentation, guides, and whitepapers
-├── designs/           # Figma or other design files
-├── tests/             # Unit and integration tests
-├── .gitignore         # Files and folders to exclude from Git
-├── LICENSE            # License for the repository
-└── README.md          # Project README file
+## **Roadmap**
+### **Phase 1: Token Creation and Initial Presale**
+- Launch CST token on Binance Smart Chain.
+- Implement the presale mechanism and lock funds until listing.
+
+### **Phase 2: Wallet Development**
+- Develop a decentralized wallet with BSC integration.
+- Enable secure token storage and transactions.
+
+### **Phase 3: Marketplace Listing**
+- List CST on prominent exchanges.
+- Establish liquidity pools.
+
+### **Phase 4: Ecosystem Expansion**
+- Introduce governance mechanisms for CST holders.
+- Partner with financial institutions for broader adoption.
+
+### **Phase 5: AI-Powered Tools**
+- Launch AI-driven financial management tools.
+- Expand ecosystem to global users.
+
+---
+
+## **Getting Started**
+Although this repository does not include the full project code, here’s how users can interact with CST during the presale phase:
+
+1. Connect a Binance Smart Chain-compatible wallet (e.g., MetaMask or Trust Wallet).
+2. Buy CST tokens using BNB during the presale.
+3. Tokens remain locked until the official marketplace listing.
+
+---
+
+## **Technologies**
+The Cryptosafe ecosystem is built using:
+- **Blockchain**: Binance Smart Chain (BSC)
+- **Wallets**: MetaMask, Trust Wallet, and others
+- **Frontend**: React (for website integration)
+- **Backend**: Node.js/Django (API services)
+- **Database**: MongoDB (future plans)
+
+---
+
+## **Contributing**
+This repository currently serves as a placeholder for the Cryptosafe Token project’s information. Code contributions will not be accepted at this stage. Please check back in the future for open-source contributions.
+
+---
+
+## **Contact**
+For inquiries or more information:
+- **Email**: [info@cryptosafe.com](mailto:admin@cryptosafe.ch)
+- **Website**: [Cryptosafe Official Website](https://cryptosafe.ch)
+
+---
+
+## **License**
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
