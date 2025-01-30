@@ -1,0 +1,194 @@
+.roadmapSection {
+  position: relative;
+  padding: 8rem 2rem;
+  overflow: hidden;
+}
+
+.title {
+  text-align: center;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  background: linear-gradient(135deg, #ffffff 0%, #00eac7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 4rem;
+}
+
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    #00eac7,
+    #3168d8,
+    transparent
+  );
+  transform: translateX(-50%);
+}
+
+.timelineItem {
+  position: relative;
+  width: 50%;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.timelineItem:nth-child(odd) {
+  left: 0;
+  padding-right: 4rem;
+}
+
+.timelineItem:nth-child(even) {
+  left: 50%;
+  padding-left: 4rem;
+}
+
+.timelineContent {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.timelineContent:hover {
+  transform: translateY(-5px);
+}
+
+.phaseTag {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(0, 234, 199, 0.1);
+  border-radius: 20px;
+  color: #00eac7;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.timelineContent h3 {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.timelineContent ul {
+  list-style: none;
+  padding: 0;
+}
+
+.timelineContent li {
+  color: #bccbd6;
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.timelineContent li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #00eac7;
+}
+
+.timelinePoint {
+  position: absolute;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+}
+
+.timelineItem:nth-child(odd) .timelinePoint {
+  right: -10px;
+}
+
+.timelineItem:nth-child(even) .timelinePoint {
+  left: -10px;
+}
+
+.point {
+  width: 20px;
+  height: 20px;
+  background: #00eac7;
+  border-radius: 50%;
+  position: relative;
+}
+
+.point::before {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  background: rgba(0, 234, 199, 0.3);
+  animation: pulse 2s infinite;
+}
+
+.completed .point {
+  background: #00eac7;
+}
+
+.in-progress .point {
+  background: #3168d8;
+}
+
+.upcoming .point {
+  background: #666;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  70% {
+    transform: scale(2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 0;
+  }
+
+  .timelineItem {
+    width: 100%;
+    padding-left: 2rem;
+  }
+
+  .timelineItem:nth-child(even) {
+    left: 0;
+    padding-left: 2rem;
+  }
+
+  .timelinePoint {
+    left: -10px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .timelineItem {
+    width: 100%;
+    left: 0 !important;
+    /* ...any additional phone tweaks... */
+  }
+}

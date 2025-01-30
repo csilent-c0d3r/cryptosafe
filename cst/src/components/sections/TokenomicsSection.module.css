@@ -1,0 +1,148 @@
+.tokenomicsSection {
+  position: relative;
+  padding: 8rem 2rem;
+  overflow: hidden;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.title {
+  text-align: center;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  background: linear-gradient(135deg, #ffffff 0%, #00eac7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 4rem;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.infoCard, .chartCard {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.infoCard h3, .chartCard h3 {
+  color: #00eac7;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.tokenInfoGrid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.infoItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.label {
+  color: #bccbd6;
+}
+
+.value {
+  color: #fff;
+  font-weight: 500;
+}
+
+.legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legendColor {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+
+.legendLabel {
+  color: #bccbd6;
+}
+
+.legendValue {
+  margin-left: auto;
+  color: #fff;
+}
+
+.taxInfo {
+  margin-top: 4rem;
+}
+
+.taxInfo h3 {
+  text-align: center;
+  color: #00eac7;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.taxGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.taxCard {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  text-align: center;
+}
+
+.taxCard h4 {
+  color: #00eac7;
+  margin-bottom: 1rem;
+}
+
+.taxCard ul {
+  list-style: none;
+  padding: 0;
+}
+
+.taxCard li {
+  color: #bccbd6;
+  margin: 0.5rem 0;
+}
+
+@media (max-width: 768px) {
+  .tokenomicsSection {
+    padding: 4rem 1rem;
+  }
+
+  .gridContainer {
+    grid-template-columns: 1fr;
+  }
+}

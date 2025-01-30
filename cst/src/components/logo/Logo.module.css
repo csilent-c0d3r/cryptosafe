@@ -1,0 +1,117 @@
+.logo {
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.logo:hover .shield-bg {
+  filter: brightness(1.2);
+}
+
+.logo:hover .letter-c,
+.logo:hover .letter-s {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: drawLetters 1.5s ease forwards;
+}
+
+@keyframes drawLetters {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* For dark backgrounds */
+.logoDark {
+  filter: drop-shadow(0 0 10px rgba(49, 104, 216, 0.5));
+}
+
+/* For light backgrounds */
+.logoLight {
+  filter: drop-shadow(0 0 10px rgba(0, 234, 199, 0.5));
+}
+
+.logoWrapper {
+  perspective: 2000px;
+  display: flex;
+  align-items: center;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cube {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotate 20s infinite linear;
+}
+
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 234, 199, 0.1);
+  border: 2px solid #00eac7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #00eac7;
+  text-shadow: 0 0 10px rgba(0, 234, 199, 0.5);
+  box-shadow: 
+    0 0 30px rgba(0, 234, 199, 0.2),
+    inset 0 0 20px rgba(0, 234, 199, 0.2);
+  backdrop-filter: blur(8px);
+}
+
+.front { transform: translateZ(20px); }
+.back { transform: translateZ(-20px) rotateY(180deg); }
+.right { transform: rotateY(90deg) translateZ(20px); }
+.left { transform: rotateY(-90deg) translateZ(20px); }
+.top { transform: rotateX(90deg) translateZ(20px); }
+.bottom { transform: rotateX(-90deg) translateZ(20px); }
+
+.logoText {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: linear-gradient(45deg, #00eac7, #3168d8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(0, 234, 199, 0.3);
+  letter-spacing: -0.02em;
+}
+
+@keyframes rotate {
+  from { transform: rotateX(0) rotateY(0); }
+  to { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotateX(10deg) rotateY(10deg); }
+  50% { transform: translateY(-10px) rotateX(-10deg) rotateY(-10deg); }
+}
+
+.logoContainer:hover .cube {
+  animation-play-state: paused;
+}
+
+@media (max-width: 480px) {
+  .logoText {
+    font-size: 1.2rem;
+  }
+  .cube {
+    width: 30px;
+    height: 30px;
+  }
+}

@@ -1,0 +1,11 @@
+.main {
+  min-height: 100vh;
+  padding-top: 80px; /* Adjust based on your header height */
+  background: linear-gradient(135deg, #0a0f1f 0%, #1a1f3f 100%);
+}
+
+@media (max-width: 480px) {
+  .main {
+    padding-top: 60px;
+  }
+}

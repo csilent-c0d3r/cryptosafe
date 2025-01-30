@@ -1,0 +1,205 @@
+.teamSection {
+  position: relative;
+  min-height: 100vh;
+  padding: 8rem 2rem;
+  overflow: hidden;
+}
+
+.glowOrbs {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.glowOrb {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center,
+    rgba(0, 234, 199, 0.15) 0%,
+    transparent 70%
+  );
+  filter: blur(60px);
+  animation: floatOrb 8s infinite alternate;
+  left: -200px;
+  top: 20%;
+}
+
+.glowOrbSecondary {
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center,
+    rgba(49, 104, 216, 0.1) 0%,
+    transparent 70%
+  );
+  filter: blur(80px);
+  animation: floatOrb 12s infinite alternate-reverse;
+  right: -300px;
+  bottom: 10%;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 4rem;
+  background: linear-gradient(135deg, #ffffff 0%, #00eac7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  z-index: 2;
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.teamCard {
+  perspective: 1000px;
+}
+
+.cardInner {
+  position: relative;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 2rem;
+  transform-style: preserve-3d;
+  transform: translateZ(30px);
+}
+
+.orbGlow {
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(circle at 50% 50%,
+    rgba(0, 234, 199, 0.2),
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(20px);
+  animation: pulseGlow 4s infinite ease-in-out;
+}
+
+.memberImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 234, 199, 0.3);
+  transform: translateZ(20px);
+}
+
+.memberInfo {
+  text-align: center;
+  transform: translateZ(20px);
+}
+
+.memberInfo h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #ffffff 0%, #00eac7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.role {
+  display: block;
+  font-size: 1.1rem;
+  color: #00eac7;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+.bio {
+  color: #bccbd6;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.socialLinks {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.socialLink {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  color: #00eac7;
+  transition: all 0.3s ease;
+  transform: translateZ(30px);
+}
+
+.socialLink:hover {
+  background: rgba(0, 234, 199, 0.2);
+  transform: translateZ(40px);
+}
+
+@keyframes floatOrb {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate(50px, -50px) scale(1.1);
+    opacity: 0.6;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+@media (max-width: 768px) {
+  .teamSection {
+    padding: 4rem 1rem;
+  }
+  
+  .teamGrid {
+    transform: none !important;
+  }
+  
+  .cardInner {
+    padding: 1.5rem;
+  }
+  
+  .imageWrapper {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .teamSection {
+    padding: 4rem 1rem;
+  }
+  .teamGrid {
+    grid-template-columns: 1fr;
+  }
+}

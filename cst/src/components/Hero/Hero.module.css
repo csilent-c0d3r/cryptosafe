@@ -1,0 +1,752 @@
+.heroContainer {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px 0;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 35, 0.95) 0%,
+    rgba(17, 27, 36, 0.98) 100%
+  );
+  margin-bottom: 0; /* Create overlap with next section */
+  overflow: hidden; /* Create overlap with next section */
+}
+
+/* Add this new class for the bottom gradient transition */
+.heroContainer::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  /* Fade from transparent to the next section's exact background color */
+  background: linear-gradient(
+    to bottom,
+    rgba(17,27,36,0) 0%,
+    #0f1723 100%
+  );
+  pointer-events: none;
+}
+
+
+/* Add floating particles effect */
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.6;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(0, 234, 199, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(49, 104, 216, 0.1) 0%, transparent 50%);
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #00eac7;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00eac7, 0 0 20px #00eac7;
+  animation: float 15s infinite, glow 2s ease-in-out infinite alternate;
+}
+
+/* Static particle positions instead of SCSS loop */
+.particle:nth-child(1) { left: 10%; top: 20%; animation: float 15s infinite; }
+.particle:nth-child(2) { left: 20%; top: 40%; animation: float 20s infinite; }
+.particle:nth-child(3) { left: 30%; top: 60%; animation: float 25s infinite; }
+.particle:nth-child(4) { left: 40%; top: 80%; animation: float 18s infinite; }
+.particle:nth-child(5) { left: 50%; top: 30%; animation: float 22s infinite; }
+.particle:nth-child(6) { left: 60%; top: 50%; animation: float 19s infinite; }
+.particle:nth-child(7) { left: 70%; top: 70%; animation: float 24s infinite; }
+.particle:nth-child(8) { left: 80%; top: 10%; animation: float 21s infinite; }
+.particle:nth-child(9) { left: 90%; top: 90%; animation: float 17s infinite; }
+.particle:nth-child(10) { left: 15%; top: 75%; animation: float 23s infinite; }
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0.7) 100%
+  ),
+  linear-gradient(
+    to bottom,
+    transparent 80%,
+    rgba(17, 27, 36, 0.8) 100%
+  );
+  z-index: 1;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  gap: 6rem;
+  opacity: 0;
+  animation: fadeIn 1s ease-out 1s forwards;
+}
+
+.textContent {
+  position: relative;
+  flex: 1;
+  max-width: 600px;
+  padding: 3rem;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  opacity: 0;
+  animation: slideInLeft 1s ease 0.8s forwards;
+}
+
+.textContent::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    125deg,
+    transparent 0%,
+    rgba(49, 104, 216, 0.1) 30%,
+    rgba(0, 234, 199, 0.1) 70%,
+    transparent 100%
+  );
+  opacity: 0.5;
+  transition: transform 0.5s;
+}
+
+.textContent:hover::before {
+  transform: translateX(-30%);
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mainTitle {
+  font-family: 'Inter-Bold', sans-serif;
+  font-size: clamp(3rem, 5vw, 5rem);
+  font-weight: 800;
+  background: linear-gradient(
+    to right,
+    #ffffff 20%,
+    #00eac7 40%,
+    #3168d8 60%,
+    #ffffff 80%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 8s linear infinite;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+
+.subTitle {
+  font-family: 'Inter-Light', sans-serif;
+  font-size: clamp(2rem, 3vw, 3.5rem);
+  font-weight: 300;
+  color: rgba(0, 234, 199, 0.8);
+  line-height: 1.2;
+  margin-bottom: 2rem;
+}
+
+.divider {
+  width: 64px;
+  height: 4px;
+  background: #00eac7;
+  margin: 2rem 0;
+}
+
+.description {
+  font-family: 'Karla-Light', sans-serif;
+  font-size: 1.2rem;
+  color: #bccbd6;
+  line-height: 1.6;
+  margin-bottom: 3rem;
+  max-width: 600px;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.primaryButton {
+  background: linear-gradient(135deg, #3168d8, #00eac7);
+  color: white;
+  padding: 1rem 2.5rem;
+  border-radius: 16px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  transform: none;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  
+}
+
+.primaryButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.primaryButton:hover::before {
+  left: 100%;
+}
+
+.primaryButton:hover {
+  background: #000809;
+  transform: translateY(-2px);
+}
+
+.primaryButton.loading {
+  color: transparent;
+  pointer-events: none;
+}
+
+.primaryButton.loading::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: buttonSpin 0.6s linear infinite;
+}
+
+.primaryButton:active {
+  transform: translateY(1px);
+  transition: transform 0.1s ease;
+}
+
+.secondaryButton {
+  background: transparent;
+  color: #00eac7;
+  padding: 1rem 2.5rem;
+  border-radius: 16px;
+  border: 2px solid #00eac7;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  transform: none;
+}
+
+.secondaryButton:hover {
+  background: rgba(0, 234, 199, 0.1);
+  transform: translateY(-2px);
+}
+
+.secondaryButton:active {
+  transform: translateY(1px);
+  transition: transform 0.1s ease;
+}
+
+.statsContainer {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 4rem;
+  opacity: 0;
+  animation: slideInRight 1s ease 1s forwards;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  transform: perspective(1000px) translateZ(0);
+}
+
+.statItem:hover {
+  transform: perspective(1000px) translateZ(20px) translateY(-5px);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(0, 234, 199, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.statItem:active {
+  transform: perspective(1000px) translateZ(10px) translateY(-2px);
+  transition: all 0.1s ease;
+}
+
+.statNumber {
+  font-family: 'Inter-Bold', sans-serif;
+  font-size: 2.5rem;
+  color: #00eac7;
+  font-weight: 700;
+  background: linear-gradient(45deg, #00eac7, #3168d8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.statLabel {
+  font-family: 'Karla-Light', sans-serif;
+  font-size: 1rem;
+  color: #bccbd6;
+}
+
+/* Add glowing animation */
+@keyframes float {
+  0% { transform: translateY(0) translateX(0); }
+  25% { transform: translateY(-20px) translateX(10px); }
+  50% { transform: translateY(0) translateX(20px); }
+  75% { transform: translateY(20px) translateX(10px); }
+  100% { transform: translateY(0) translateX(0); }
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px #00eac7, 0 0 20px #00eac7;
+  }
+  to {
+    box-shadow: 0 0 15px #00eac7, 0 0 30px #00eac7, 0 0 40px #3168d8;
+  }
+}
+
+@keyframes welcomeIn {
+  0% {
+    opacity: 0;
+    transform: translateZ(-100px) rotateX(20deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateZ(0) rotateX(0);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUpFade {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes flipIn {
+  0% {
+    opacity: 0;
+    transform: perspective(1000px) rotateX(-90deg);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1000px) rotateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes textGlow {
+  from {
+    text-shadow: 0 0 10px rgba(0, 234, 199, 0.5);
+  }
+  to {
+    text-shadow: 0 0 20px rgba(0, 234, 199, 0.8),
+                 0 0 30px rgba(49, 104, 216, 0.6);
+  }
+}
+
+@keyframes buttonSpin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 0 0 rgba(0, 234, 199, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(0, 234, 199, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 234, 199, 0); }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .content {
+    flex-direction: column;
+    gap: 4rem;
+    text-align: center;
+  }
+
+  .statsContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .welcomeText {
+    font-size: 4rem;
+  }
+
+  .welcomeHighlight {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 1rem 0rem;
+    text-align: center;
+    align-items: center;
+  }
+
+  .mainTitle {
+    font-size: 3rem;
+  }
+
+  .subTitle {
+    font-size: 2.5rem;
+  }
+
+  .buttonGroup {
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .statsContainer {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .divider {
+    margin: 2rem auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroContainer {
+    padding: 40px 16px 0;
+    min-height: calc(100vh - 60px);
+  }
+
+  .content {
+    padding: 1rem;
+    gap: 2rem;
+    margin: 1rem -2rem;
+  }
+
+  .textContent {
+    padding: 1.5rem;
+    border-radius: 20px;
+    margin: 0 8px;
+  }
+
+  .mainTitle {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .subTitle {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    margin-bottom: 1rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+  }
+
+  .divider {
+    width: 40px;
+    margin: 1rem auto;
+  }
+
+  .buttonGroup {
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    max-width: 280px;
+    margin: 1rem auto 0;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    font-size: 0.95rem;
+    border-radius: 12px;
+  }
+
+  .statsContainer {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding: 0 8px;
+  }
+
+  .statItem {
+    padding: 1.25rem;
+    border-radius: 16px;
+  }
+
+  .statNumber {
+    font-size: 2rem;
+  }
+
+  .statLabel {
+    font-size: 0.875rem;
+  }
+
+  .welcomeSection {
+    padding: 3rem 1rem;
+  }
+
+  .welcomeText {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .welcomeHighlight {
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+    margin-top: 1rem;
+  }
+
+  /* Adjust particle visibility for better mobile performance */
+  .particles {
+    opacity: 0.4;
+  }
+
+  .particle {
+    display: none;
+  }
+
+  .particle:nth-child(1),
+  .particle:nth-child(3),
+  .particle:nth-child(5) {
+    display: block; /* Show only few particles on mobile for better performance */
+  }
+}
+
+/* Add a specific breakpoint for very small devices */
+@media (max-width: 360px) {
+  .mainTitle {
+    font-size: 1.5rem;
+  }
+
+  .subTitle {
+    font-size: 1.1rem;
+  }
+
+  .textContent {
+    padding: 1rem;
+  }
+
+  .buttonGroup {
+    max-width: 240px;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.875rem;
+  }
+}
+
+.welcomeSection {
+  position: relative;
+  width: 100%;
+  padding: 6rem 2rem;
+  text-align: center;
+  z-index: 2;
+}
+
+.welcomeText {
+  font-size: 5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.welcomeWord {
+  opacity: 0;
+  display: inline-block;
+  background: linear-gradient(45deg, #ffffff 0%, #00eac7 50%, #3168d8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeInDown 0.5s forwards;
+}
+
+.welcomeWord:nth-child(1) { animation-delay: 0.1s; }
+.welcomeWord:nth-child(2) { animation-delay: 0.2s; }
+.welcomeWord:nth-child(3) { animation-delay: 0.3s; }
+.welcomeWord:nth-child(4) { animation-delay: 0.4s; }
+
+.welcomeHighlight {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #bccbd6;
+  margin-top: 2rem;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards 0.8s;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Remove any conflicting animations and keep only the necessary ones */
+@media (max-width: 780px) {
+  .heroContainer {
+    padding: 60px 10px 0;
+  }
+
+  .heroContainer::after {
+    height: 150px;
+  }
+
+  .textContent {
+    padding: 1rem;
+    border-radius: 20px;
+  }
+
+  .mainTitle {
+    font-size: 1.5rem;
+  }
+
+  .subTitle {
+    font-size: 1.2rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .buttonGroup {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .statsContainer {
+    margin-top: 2rem;
+    gap: 1rem;
+  }
+
+  .statItem {
+    padding: 1rem;
+    
+  }
+
+  .statNumber {
+    font-size: 2rem;
+  }
+
+  .statLabel {
+    font-size: 0.8rem;
+  }
+}

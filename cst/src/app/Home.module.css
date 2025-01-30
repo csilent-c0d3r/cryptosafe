@@ -1,0 +1,26 @@
+.container {
+  min-height: 100vh;
+  position: relative;
+  z-index: 10;
+  background: var(--page-gradient);
+  background-attachment: fixed;
+}
+
+.mainWrapper {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.mainContent {
+  position: relative;
+  z-index: 10;
+  flex: 1;
+}
+
+.contentSections {
+  position: relative;
+  z-index: 2;
+}
